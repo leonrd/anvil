@@ -1,5 +1,6 @@
 package trikita.anvil.support.v4;
 
+import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.support.v4.app.FragmentTabHost;
 import android.support.v4.view.PagerAdapter;
@@ -27,244 +28,401 @@ import trikita.anvil.BaseDSL;
  * Please, don't edit it manually unless for debugging.
  */
 public final class Supportv4DSL {
-  public static BaseDSL.ViewClassResult fragmentTabHost() {
-    return BaseDSL.v(FragmentTabHost.class);
+  public static FragmentTabHost fragmentTabHost() {
+    return BaseDSL.v(FragmentTabHostFactoryFunc.getInstance());
   }
 
-  public static Void fragmentTabHost(Anvil.Renderable r) {
-    return BaseDSL.v(FragmentTabHost.class, r);
+  public static FragmentTabHost fragmentTabHost(Anvil.Renderable r) {
+    return BaseDSL.v(FragmentTabHostFactoryFunc.getInstance(), r);
   }
 
-  public static BaseDSL.ViewClassResult pagerTabStrip() {
-    return BaseDSL.v(PagerTabStrip.class);
+  public static PagerTabStrip pagerTabStrip() {
+    return BaseDSL.v(PagerTabStripFactoryFunc.getInstance());
   }
 
-  public static Void pagerTabStrip(Anvil.Renderable r) {
-    return BaseDSL.v(PagerTabStrip.class, r);
+  public static PagerTabStrip pagerTabStrip(Anvil.Renderable r) {
+    return BaseDSL.v(PagerTabStripFactoryFunc.getInstance(), r);
   }
 
-  public static BaseDSL.ViewClassResult pagerTitleStrip() {
-    return BaseDSL.v(PagerTitleStrip.class);
+  public static PagerTitleStrip pagerTitleStrip() {
+    return BaseDSL.v(PagerTitleStripFactoryFunc.getInstance());
   }
 
-  public static Void pagerTitleStrip(Anvil.Renderable r) {
-    return BaseDSL.v(PagerTitleStrip.class, r);
+  public static PagerTitleStrip pagerTitleStrip(Anvil.Renderable r) {
+    return BaseDSL.v(PagerTitleStripFactoryFunc.getInstance(), r);
   }
 
-  public static BaseDSL.ViewClassResult viewPager() {
-    return BaseDSL.v(ViewPager.class);
+  public static ViewPager viewPager() {
+    return BaseDSL.v(ViewPagerFactoryFunc.getInstance());
   }
 
-  public static Void viewPager(Anvil.Renderable r) {
-    return BaseDSL.v(ViewPager.class, r);
+  public static ViewPager viewPager(Anvil.Renderable r) {
+    return BaseDSL.v(ViewPagerFactoryFunc.getInstance(), r);
   }
 
-  public static BaseDSL.ViewClassResult contentLoadingProgressBar() {
-    return BaseDSL.v(ContentLoadingProgressBar.class);
+  public static ContentLoadingProgressBar contentLoadingProgressBar() {
+    return BaseDSL.v(ContentLoadingProgressBarFactoryFunc.getInstance());
   }
 
-  public static Void contentLoadingProgressBar(Anvil.Renderable r) {
-    return BaseDSL.v(ContentLoadingProgressBar.class, r);
+  public static ContentLoadingProgressBar contentLoadingProgressBar(Anvil.Renderable r) {
+    return BaseDSL.v(ContentLoadingProgressBarFactoryFunc.getInstance(), r);
   }
 
-  public static BaseDSL.ViewClassResult drawerLayout() {
-    return BaseDSL.v(DrawerLayout.class);
+  public static DrawerLayout drawerLayout() {
+    return BaseDSL.v(DrawerLayoutFactoryFunc.getInstance());
   }
 
-  public static Void drawerLayout(Anvil.Renderable r) {
-    return BaseDSL.v(DrawerLayout.class, r);
+  public static DrawerLayout drawerLayout(Anvil.Renderable r) {
+    return BaseDSL.v(DrawerLayoutFactoryFunc.getInstance(), r);
   }
 
-  public static BaseDSL.ViewClassResult nestedScrollView() {
-    return BaseDSL.v(NestedScrollView.class);
+  public static NestedScrollView nestedScrollView() {
+    return BaseDSL.v(NestedScrollViewFactoryFunc.getInstance());
   }
 
-  public static Void nestedScrollView(Anvil.Renderable r) {
-    return BaseDSL.v(NestedScrollView.class, r);
+  public static NestedScrollView nestedScrollView(Anvil.Renderable r) {
+    return BaseDSL.v(NestedScrollViewFactoryFunc.getInstance(), r);
   }
 
-  public static BaseDSL.ViewClassResult slidingPaneLayout() {
-    return BaseDSL.v(SlidingPaneLayout.class);
+  public static SlidingPaneLayout slidingPaneLayout() {
+    return BaseDSL.v(SlidingPaneLayoutFactoryFunc.getInstance());
   }
 
-  public static Void slidingPaneLayout(Anvil.Renderable r) {
-    return BaseDSL.v(SlidingPaneLayout.class, r);
+  public static SlidingPaneLayout slidingPaneLayout(Anvil.Renderable r) {
+    return BaseDSL.v(SlidingPaneLayoutFactoryFunc.getInstance(), r);
   }
 
-  public static BaseDSL.ViewClassResult space() {
-    return BaseDSL.v(Space.class);
+  public static Space space() {
+    return BaseDSL.v(SpaceFactoryFunc.getInstance());
   }
 
-  public static Void space(Anvil.Renderable r) {
-    return BaseDSL.v(Space.class, r);
+  public static Space space(Anvil.Renderable r) {
+    return BaseDSL.v(SpaceFactoryFunc.getInstance(), r);
   }
 
-  public static BaseDSL.ViewClassResult swipeRefreshLayout() {
-    return BaseDSL.v(SwipeRefreshLayout.class);
+  public static SwipeRefreshLayout swipeRefreshLayout() {
+    return BaseDSL.v(SwipeRefreshLayoutFactoryFunc.getInstance());
   }
 
-  public static Void swipeRefreshLayout(Anvil.Renderable r) {
-    return BaseDSL.v(SwipeRefreshLayout.class, r);
+  public static SwipeRefreshLayout swipeRefreshLayout(Anvil.Renderable r) {
+    return BaseDSL.v(SwipeRefreshLayoutFactoryFunc.getInstance(), r);
   }
 
   public static Void adapter(PagerAdapter arg) {
-    return BaseDSL.attr(AdapterFuncdc294743.instance, arg);
+    return BaseDSL.attr(AdapterFuncdc294743.getInstance(), arg);
   }
 
   public static Void colorSchemeColors(int[] arg) {
-    return BaseDSL.attr(ColorSchemeColorsFunc5fb6391.instance, arg);
+    return BaseDSL.attr(ColorSchemeColorsFunc5fb6391.getInstance(), arg);
   }
 
   public static Void colorSchemeResources(int[] arg) {
-    return BaseDSL.attr(ColorSchemeResourcesFunc5fb6391.instance, arg);
+    return BaseDSL.attr(ColorSchemeResourcesFunc5fb6391.getInstance(), arg);
   }
 
   public static Void coveredFadeColor(int arg) {
-    return BaseDSL.attr(CoveredFadeColorFunc8567756a.instance, arg);
+    return BaseDSL.attr(CoveredFadeColorFunc8567756a.getInstance(), arg);
   }
 
   public static Void currentItem(int arg) {
-    return BaseDSL.attr(CurrentItemFunc8567756a.instance, arg);
+    return BaseDSL.attr(CurrentItemFunc8567756a.getInstance(), arg);
   }
 
   public static Void distanceToTriggerSync(int arg) {
-    return BaseDSL.attr(DistanceToTriggerSyncFunc8567756a.instance, arg);
+    return BaseDSL.attr(DistanceToTriggerSyncFunc8567756a.getInstance(), arg);
   }
 
   public static Void drawFullUnderline(boolean arg) {
-    return BaseDSL.attr(DrawFullUnderlineFunc148d6054.instance, arg);
+    return BaseDSL.attr(DrawFullUnderlineFunc148d6054.getInstance(), arg);
   }
 
   public static Void drawerElevation(float arg) {
-    return BaseDSL.attr(DrawerElevationFunce0893188.instance, arg);
+    return BaseDSL.attr(DrawerElevationFunce0893188.getInstance(), arg);
   }
 
   public static Void drawerLockMode(int arg) {
-    return BaseDSL.attr(DrawerLockModeFunc8567756a.instance, arg);
+    return BaseDSL.attr(DrawerLockModeFunc8567756a.getInstance(), arg);
   }
 
   public static Void fillViewport(boolean arg) {
-    return BaseDSL.attr(FillViewportFunc148d6054.instance, arg);
+    return BaseDSL.attr(FillViewportFunc148d6054.getInstance(), arg);
   }
 
   public static Void gravity(int arg) {
-    return BaseDSL.attr(GravityFunc8567756a.instance, arg);
+    return BaseDSL.attr(GravityFunc8567756a.getInstance(), arg);
   }
 
   public static Void nestedScrollingEnabled(boolean arg) {
-    return BaseDSL.attr(NestedScrollingEnabledFunc148d6054.instance, arg);
+    return BaseDSL.attr(NestedScrollingEnabledFunc148d6054.getInstance(), arg);
   }
 
   public static Void nonPrimaryAlpha(float arg) {
-    return BaseDSL.attr(NonPrimaryAlphaFunce0893188.instance, arg);
+    return BaseDSL.attr(NonPrimaryAlphaFunce0893188.getInstance(), arg);
   }
 
   public static Void offscreenPageLimit(int arg) {
-    return BaseDSL.attr(OffscreenPageLimitFunc8567756a.instance, arg);
+    return BaseDSL.attr(OffscreenPageLimitFunc8567756a.getInstance(), arg);
   }
 
   public static Void onRefresh(SwipeRefreshLayout.OnRefreshListener arg) {
-    return BaseDSL.attr(OnRefreshFunc6ab1eac5.instance, arg);
+    return BaseDSL.attr(OnRefreshFunc6ab1eac5.getInstance(), arg);
   }
 
   public static Void onScrollChange(NestedScrollView.OnScrollChangeListener arg) {
-    return BaseDSL.attr(OnScrollChangeFunc220ef5fd.instance, arg);
+    return BaseDSL.attr(OnScrollChangeFunc220ef5fd.getInstance(), arg);
   }
 
   public static Void pageMargin(int arg) {
-    return BaseDSL.attr(PageMarginFunc8567756a.instance, arg);
+    return BaseDSL.attr(PageMarginFunc8567756a.getInstance(), arg);
   }
 
   public static Void pageMarginDrawable(Drawable arg) {
-    return BaseDSL.attr(PageMarginDrawableFuncfb47464a.instance, arg);
+    return BaseDSL.attr(PageMarginDrawableFuncfb47464a.getInstance(), arg);
   }
 
   public static Void pageMarginDrawable(int arg) {
-    return BaseDSL.attr(PageMarginDrawableFunc8567756a.instance, arg);
+    return BaseDSL.attr(PageMarginDrawableFunc8567756a.getInstance(), arg);
   }
 
   public static Void panelSlideListener(SlidingPaneLayout.PanelSlideListener arg) {
-    return BaseDSL.attr(PanelSlideListenerFuncf9ef21a7.instance, arg);
+    return BaseDSL.attr(PanelSlideListenerFuncf9ef21a7.getInstance(), arg);
   }
 
   public static Void parallaxDistance(int arg) {
-    return BaseDSL.attr(ParallaxDistanceFunc8567756a.instance, arg);
+    return BaseDSL.attr(ParallaxDistanceFunc8567756a.getInstance(), arg);
   }
 
   public static Void progressBackgroundColorSchemeColor(int arg) {
-    return BaseDSL.attr(ProgressBackgroundColorSchemeColorFunc8567756a.instance, arg);
+    return BaseDSL.attr(ProgressBackgroundColorSchemeColorFunc8567756a.getInstance(), arg);
   }
 
   public static Void progressBackgroundColorSchemeResource(int arg) {
-    return BaseDSL.attr(ProgressBackgroundColorSchemeResourceFunc8567756a.instance, arg);
+    return BaseDSL.attr(ProgressBackgroundColorSchemeResourceFunc8567756a.getInstance(), arg);
   }
 
   public static Void refreshing(boolean arg) {
-    return BaseDSL.attr(RefreshingFunc148d6054.instance, arg);
+    return BaseDSL.attr(RefreshingFunc148d6054.getInstance(), arg);
   }
 
   public static Void scrimColor(int arg) {
-    return BaseDSL.attr(ScrimColorFunc8567756a.instance, arg);
+    return BaseDSL.attr(ScrimColorFunc8567756a.getInstance(), arg);
   }
 
   public static Void shadowDrawableLeft(Drawable arg) {
-    return BaseDSL.attr(ShadowDrawableLeftFuncfb47464a.instance, arg);
+    return BaseDSL.attr(ShadowDrawableLeftFuncfb47464a.getInstance(), arg);
   }
 
   public static Void shadowDrawableRight(Drawable arg) {
-    return BaseDSL.attr(ShadowDrawableRightFuncfb47464a.instance, arg);
+    return BaseDSL.attr(ShadowDrawableRightFuncfb47464a.getInstance(), arg);
   }
 
   public static Void shadowResourceLeft(int arg) {
-    return BaseDSL.attr(ShadowResourceLeftFunc8567756a.instance, arg);
+    return BaseDSL.attr(ShadowResourceLeftFunc8567756a.getInstance(), arg);
   }
 
   public static Void shadowResourceRight(int arg) {
-    return BaseDSL.attr(ShadowResourceRightFunc8567756a.instance, arg);
+    return BaseDSL.attr(ShadowResourceRightFunc8567756a.getInstance(), arg);
   }
 
   public static Void size(int arg) {
-    return BaseDSL.attr(SizeFunc8567756a.instance, arg);
+    return BaseDSL.attr(SizeFunc8567756a.getInstance(), arg);
   }
 
   public static Void sliderFadeColor(int arg) {
-    return BaseDSL.attr(SliderFadeColorFunc8567756a.instance, arg);
+    return BaseDSL.attr(SliderFadeColorFunc8567756a.getInstance(), arg);
   }
 
   public static Void smoothScrollingEnabled(boolean arg) {
-    return BaseDSL.attr(SmoothScrollingEnabledFunc148d6054.instance, arg);
+    return BaseDSL.attr(SmoothScrollingEnabledFunc148d6054.getInstance(), arg);
   }
 
   public static Void statusBarBackground(Drawable arg) {
-    return BaseDSL.attr(StatusBarBackgroundFuncfb47464a.instance, arg);
+    return BaseDSL.attr(StatusBarBackgroundFuncfb47464a.getInstance(), arg);
   }
 
   public static Void statusBarBackground(int arg) {
-    return BaseDSL.attr(StatusBarBackgroundFunc8567756a.instance, arg);
+    return BaseDSL.attr(StatusBarBackgroundFunc8567756a.getInstance(), arg);
   }
 
   public static Void statusBarBackgroundColor(int arg) {
-    return BaseDSL.attr(StatusBarBackgroundColorFunc8567756a.instance, arg);
+    return BaseDSL.attr(StatusBarBackgroundColorFunc8567756a.getInstance(), arg);
   }
 
   public static Void tabIndicatorColor(int arg) {
-    return BaseDSL.attr(TabIndicatorColorFunc8567756a.instance, arg);
+    return BaseDSL.attr(TabIndicatorColorFunc8567756a.getInstance(), arg);
   }
 
   public static Void tabIndicatorColorResource(int arg) {
-    return BaseDSL.attr(TabIndicatorColorResourceFunc8567756a.instance, arg);
+    return BaseDSL.attr(TabIndicatorColorResourceFunc8567756a.getInstance(), arg);
   }
 
   public static Void textColor(int arg) {
-    return BaseDSL.attr(TextColorFunc8567756a.instance, arg);
+    return BaseDSL.attr(TextColorFunc8567756a.getInstance(), arg);
   }
 
   public static Void textSpacing(int arg) {
-    return BaseDSL.attr(TextSpacingFunc8567756a.instance, arg);
+    return BaseDSL.attr(TextSpacingFunc8567756a.getInstance(), arg);
+  }
+
+  private static final class FragmentTabHostFactoryFunc implements Anvil.FactoryFunc<FragmentTabHost> {
+    private static FragmentTabHostFactoryFunc instance = null;
+
+    public static FragmentTabHostFactoryFunc getInstance() {
+      if(instance == null) {
+        instance = new FragmentTabHostFactoryFunc();
+      }
+      return instance;
+    }
+
+    public FragmentTabHost apply(Context c) {
+      return new FragmentTabHost(c);
+    }
+  }
+
+  private static final class PagerTabStripFactoryFunc implements Anvil.FactoryFunc<PagerTabStrip> {
+    private static PagerTabStripFactoryFunc instance = null;
+
+    public static PagerTabStripFactoryFunc getInstance() {
+      if(instance == null) {
+        instance = new PagerTabStripFactoryFunc();
+      }
+      return instance;
+    }
+
+    public PagerTabStrip apply(Context c) {
+      return new PagerTabStrip(c);
+    }
+  }
+
+  private static final class PagerTitleStripFactoryFunc implements Anvil.FactoryFunc<PagerTitleStrip> {
+    private static PagerTitleStripFactoryFunc instance = null;
+
+    public static PagerTitleStripFactoryFunc getInstance() {
+      if(instance == null) {
+        instance = new PagerTitleStripFactoryFunc();
+      }
+      return instance;
+    }
+
+    public PagerTitleStrip apply(Context c) {
+      return new PagerTitleStrip(c);
+    }
+  }
+
+  private static final class ViewPagerFactoryFunc implements Anvil.FactoryFunc<ViewPager> {
+    private static ViewPagerFactoryFunc instance = null;
+
+    public static ViewPagerFactoryFunc getInstance() {
+      if(instance == null) {
+        instance = new ViewPagerFactoryFunc();
+      }
+      return instance;
+    }
+
+    public ViewPager apply(Context c) {
+      return new ViewPager(c);
+    }
+  }
+
+  private static final class ContentLoadingProgressBarFactoryFunc implements Anvil.FactoryFunc<ContentLoadingProgressBar> {
+    private static ContentLoadingProgressBarFactoryFunc instance = null;
+
+    public static ContentLoadingProgressBarFactoryFunc getInstance() {
+      if(instance == null) {
+        instance = new ContentLoadingProgressBarFactoryFunc();
+      }
+      return instance;
+    }
+
+    public ContentLoadingProgressBar apply(Context c) {
+      return new ContentLoadingProgressBar(c);
+    }
+  }
+
+  private static final class DrawerLayoutFactoryFunc implements Anvil.FactoryFunc<DrawerLayout> {
+    private static DrawerLayoutFactoryFunc instance = null;
+
+    public static DrawerLayoutFactoryFunc getInstance() {
+      if(instance == null) {
+        instance = new DrawerLayoutFactoryFunc();
+      }
+      return instance;
+    }
+
+    public DrawerLayout apply(Context c) {
+      return new DrawerLayout(c);
+    }
+  }
+
+  private static final class NestedScrollViewFactoryFunc implements Anvil.FactoryFunc<NestedScrollView> {
+    private static NestedScrollViewFactoryFunc instance = null;
+
+    public static NestedScrollViewFactoryFunc getInstance() {
+      if(instance == null) {
+        instance = new NestedScrollViewFactoryFunc();
+      }
+      return instance;
+    }
+
+    public NestedScrollView apply(Context c) {
+      return new NestedScrollView(c);
+    }
+  }
+
+  private static final class SlidingPaneLayoutFactoryFunc implements Anvil.FactoryFunc<SlidingPaneLayout> {
+    private static SlidingPaneLayoutFactoryFunc instance = null;
+
+    public static SlidingPaneLayoutFactoryFunc getInstance() {
+      if(instance == null) {
+        instance = new SlidingPaneLayoutFactoryFunc();
+      }
+      return instance;
+    }
+
+    public SlidingPaneLayout apply(Context c) {
+      return new SlidingPaneLayout(c);
+    }
+  }
+
+  private static final class SpaceFactoryFunc implements Anvil.FactoryFunc<Space> {
+    private static SpaceFactoryFunc instance = null;
+
+    public static SpaceFactoryFunc getInstance() {
+      if(instance == null) {
+        instance = new SpaceFactoryFunc();
+      }
+      return instance;
+    }
+
+    public Space apply(Context c) {
+      return new Space(c);
+    }
+  }
+
+  private static final class SwipeRefreshLayoutFactoryFunc implements Anvil.FactoryFunc<SwipeRefreshLayout> {
+    private static SwipeRefreshLayoutFactoryFunc instance = null;
+
+    public static SwipeRefreshLayoutFactoryFunc getInstance() {
+      if(instance == null) {
+        instance = new SwipeRefreshLayoutFactoryFunc();
+      }
+      return instance;
+    }
+
+    public SwipeRefreshLayout apply(Context c) {
+      return new SwipeRefreshLayout(c);
+    }
   }
 
   private static final class AdapterFuncdc294743 implements Anvil.AttrFunc<PagerAdapter> {
-    public static final AdapterFuncdc294743 instance = new AdapterFuncdc294743();
+    private static AdapterFuncdc294743 instance = null;
+
+    public static AdapterFuncdc294743 getInstance() {
+      if(instance == null) {
+        instance = new AdapterFuncdc294743();
+      }
+      return instance;
+    }
 
     public void apply(View v, final PagerAdapter arg, final PagerAdapter old) {
       if (v instanceof ViewPager) {
@@ -274,7 +432,14 @@ public final class Supportv4DSL {
   }
 
   private static final class ColorSchemeColorsFunc5fb6391 implements Anvil.AttrFunc<int[]> {
-    public static final ColorSchemeColorsFunc5fb6391 instance = new ColorSchemeColorsFunc5fb6391();
+    private static ColorSchemeColorsFunc5fb6391 instance = null;
+
+    public static ColorSchemeColorsFunc5fb6391 getInstance() {
+      if(instance == null) {
+        instance = new ColorSchemeColorsFunc5fb6391();
+      }
+      return instance;
+    }
 
     public void apply(View v, final int[] arg, final int[] old) {
       if (v instanceof SwipeRefreshLayout) {
@@ -284,7 +449,14 @@ public final class Supportv4DSL {
   }
 
   private static final class ColorSchemeResourcesFunc5fb6391 implements Anvil.AttrFunc<int[]> {
-    public static final ColorSchemeResourcesFunc5fb6391 instance = new ColorSchemeResourcesFunc5fb6391();
+    private static ColorSchemeResourcesFunc5fb6391 instance = null;
+
+    public static ColorSchemeResourcesFunc5fb6391 getInstance() {
+      if(instance == null) {
+        instance = new ColorSchemeResourcesFunc5fb6391();
+      }
+      return instance;
+    }
 
     public void apply(View v, final int[] arg, final int[] old) {
       if (v instanceof SwipeRefreshLayout) {
@@ -294,7 +466,14 @@ public final class Supportv4DSL {
   }
 
   private static final class CoveredFadeColorFunc8567756a implements Anvil.AttrFunc<Integer> {
-    public static final CoveredFadeColorFunc8567756a instance = new CoveredFadeColorFunc8567756a();
+    private static CoveredFadeColorFunc8567756a instance = null;
+
+    public static CoveredFadeColorFunc8567756a getInstance() {
+      if(instance == null) {
+        instance = new CoveredFadeColorFunc8567756a();
+      }
+      return instance;
+    }
 
     public void apply(View v, final Integer arg, final Integer old) {
       if (v instanceof SlidingPaneLayout) {
@@ -304,7 +483,14 @@ public final class Supportv4DSL {
   }
 
   private static final class CurrentItemFunc8567756a implements Anvil.AttrFunc<Integer> {
-    public static final CurrentItemFunc8567756a instance = new CurrentItemFunc8567756a();
+    private static CurrentItemFunc8567756a instance = null;
+
+    public static CurrentItemFunc8567756a getInstance() {
+      if(instance == null) {
+        instance = new CurrentItemFunc8567756a();
+      }
+      return instance;
+    }
 
     public void apply(View v, final Integer arg, final Integer old) {
       if (v instanceof ViewPager) {
@@ -314,7 +500,14 @@ public final class Supportv4DSL {
   }
 
   private static final class DistanceToTriggerSyncFunc8567756a implements Anvil.AttrFunc<Integer> {
-    public static final DistanceToTriggerSyncFunc8567756a instance = new DistanceToTriggerSyncFunc8567756a();
+    private static DistanceToTriggerSyncFunc8567756a instance = null;
+
+    public static DistanceToTriggerSyncFunc8567756a getInstance() {
+      if(instance == null) {
+        instance = new DistanceToTriggerSyncFunc8567756a();
+      }
+      return instance;
+    }
 
     public void apply(View v, final Integer arg, final Integer old) {
       if (v instanceof SwipeRefreshLayout) {
@@ -324,7 +517,14 @@ public final class Supportv4DSL {
   }
 
   private static final class DrawFullUnderlineFunc148d6054 implements Anvil.AttrFunc<Boolean> {
-    public static final DrawFullUnderlineFunc148d6054 instance = new DrawFullUnderlineFunc148d6054();
+    private static DrawFullUnderlineFunc148d6054 instance = null;
+
+    public static DrawFullUnderlineFunc148d6054 getInstance() {
+      if(instance == null) {
+        instance = new DrawFullUnderlineFunc148d6054();
+      }
+      return instance;
+    }
 
     public void apply(View v, final Boolean arg, final Boolean old) {
       if (v instanceof PagerTabStrip) {
@@ -334,7 +534,14 @@ public final class Supportv4DSL {
   }
 
   private static final class DrawerElevationFunce0893188 implements Anvil.AttrFunc<Float> {
-    public static final DrawerElevationFunce0893188 instance = new DrawerElevationFunce0893188();
+    private static DrawerElevationFunce0893188 instance = null;
+
+    public static DrawerElevationFunce0893188 getInstance() {
+      if(instance == null) {
+        instance = new DrawerElevationFunce0893188();
+      }
+      return instance;
+    }
 
     public void apply(View v, final Float arg, final Float old) {
       if (v instanceof DrawerLayout) {
@@ -344,7 +551,14 @@ public final class Supportv4DSL {
   }
 
   private static final class DrawerLockModeFunc8567756a implements Anvil.AttrFunc<Integer> {
-    public static final DrawerLockModeFunc8567756a instance = new DrawerLockModeFunc8567756a();
+    private static DrawerLockModeFunc8567756a instance = null;
+
+    public static DrawerLockModeFunc8567756a getInstance() {
+      if(instance == null) {
+        instance = new DrawerLockModeFunc8567756a();
+      }
+      return instance;
+    }
 
     public void apply(View v, final Integer arg, final Integer old) {
       if (v instanceof DrawerLayout) {
@@ -354,7 +568,14 @@ public final class Supportv4DSL {
   }
 
   private static final class FillViewportFunc148d6054 implements Anvil.AttrFunc<Boolean> {
-    public static final FillViewportFunc148d6054 instance = new FillViewportFunc148d6054();
+    private static FillViewportFunc148d6054 instance = null;
+
+    public static FillViewportFunc148d6054 getInstance() {
+      if(instance == null) {
+        instance = new FillViewportFunc148d6054();
+      }
+      return instance;
+    }
 
     public void apply(View v, final Boolean arg, final Boolean old) {
       if (v instanceof NestedScrollView) {
@@ -364,7 +585,14 @@ public final class Supportv4DSL {
   }
 
   private static final class GravityFunc8567756a implements Anvil.AttrFunc<Integer> {
-    public static final GravityFunc8567756a instance = new GravityFunc8567756a();
+    private static GravityFunc8567756a instance = null;
+
+    public static GravityFunc8567756a getInstance() {
+      if(instance == null) {
+        instance = new GravityFunc8567756a();
+      }
+      return instance;
+    }
 
     public void apply(View v, final Integer arg, final Integer old) {
       if (v instanceof PagerTitleStrip) {
@@ -374,7 +602,14 @@ public final class Supportv4DSL {
   }
 
   private static final class NestedScrollingEnabledFunc148d6054 implements Anvil.AttrFunc<Boolean> {
-    public static final NestedScrollingEnabledFunc148d6054 instance = new NestedScrollingEnabledFunc148d6054();
+    private static NestedScrollingEnabledFunc148d6054 instance = null;
+
+    public static NestedScrollingEnabledFunc148d6054 getInstance() {
+      if(instance == null) {
+        instance = new NestedScrollingEnabledFunc148d6054();
+      }
+      return instance;
+    }
 
     public void apply(View v, final Boolean arg, final Boolean old) {
       if (v instanceof NestedScrollView) {
@@ -387,7 +622,14 @@ public final class Supportv4DSL {
   }
 
   private static final class NonPrimaryAlphaFunce0893188 implements Anvil.AttrFunc<Float> {
-    public static final NonPrimaryAlphaFunce0893188 instance = new NonPrimaryAlphaFunce0893188();
+    private static NonPrimaryAlphaFunce0893188 instance = null;
+
+    public static NonPrimaryAlphaFunce0893188 getInstance() {
+      if(instance == null) {
+        instance = new NonPrimaryAlphaFunce0893188();
+      }
+      return instance;
+    }
 
     public void apply(View v, final Float arg, final Float old) {
       if (v instanceof PagerTitleStrip) {
@@ -397,7 +639,14 @@ public final class Supportv4DSL {
   }
 
   private static final class OffscreenPageLimitFunc8567756a implements Anvil.AttrFunc<Integer> {
-    public static final OffscreenPageLimitFunc8567756a instance = new OffscreenPageLimitFunc8567756a();
+    private static OffscreenPageLimitFunc8567756a instance = null;
+
+    public static OffscreenPageLimitFunc8567756a getInstance() {
+      if(instance == null) {
+        instance = new OffscreenPageLimitFunc8567756a();
+      }
+      return instance;
+    }
 
     public void apply(View v, final Integer arg, final Integer old) {
       if (v instanceof ViewPager) {
@@ -407,7 +656,14 @@ public final class Supportv4DSL {
   }
 
   private static final class OnRefreshFunc6ab1eac5 implements Anvil.AttrFunc<SwipeRefreshLayout.OnRefreshListener> {
-    public static final OnRefreshFunc6ab1eac5 instance = new OnRefreshFunc6ab1eac5();
+    private static OnRefreshFunc6ab1eac5 instance = null;
+
+    public static OnRefreshFunc6ab1eac5 getInstance() {
+      if(instance == null) {
+        instance = new OnRefreshFunc6ab1eac5();
+      }
+      return instance;
+    }
 
     public void apply(View v, final SwipeRefreshLayout.OnRefreshListener arg, final SwipeRefreshLayout.OnRefreshListener old) {
       if (v instanceof SwipeRefreshLayout) {
@@ -426,7 +682,14 @@ public final class Supportv4DSL {
   }
 
   private static final class OnScrollChangeFunc220ef5fd implements Anvil.AttrFunc<NestedScrollView.OnScrollChangeListener> {
-    public static final OnScrollChangeFunc220ef5fd instance = new OnScrollChangeFunc220ef5fd();
+    private static OnScrollChangeFunc220ef5fd instance = null;
+
+    public static OnScrollChangeFunc220ef5fd getInstance() {
+      if(instance == null) {
+        instance = new OnScrollChangeFunc220ef5fd();
+      }
+      return instance;
+    }
 
     public void apply(View v, final NestedScrollView.OnScrollChangeListener arg, final NestedScrollView.OnScrollChangeListener old) {
       if (v instanceof NestedScrollView) {
@@ -445,7 +708,14 @@ public final class Supportv4DSL {
   }
 
   private static final class PageMarginFunc8567756a implements Anvil.AttrFunc<Integer> {
-    public static final PageMarginFunc8567756a instance = new PageMarginFunc8567756a();
+    private static PageMarginFunc8567756a instance = null;
+
+    public static PageMarginFunc8567756a getInstance() {
+      if(instance == null) {
+        instance = new PageMarginFunc8567756a();
+      }
+      return instance;
+    }
 
     public void apply(View v, final Integer arg, final Integer old) {
       if (v instanceof ViewPager) {
@@ -455,7 +725,14 @@ public final class Supportv4DSL {
   }
 
   private static final class PageMarginDrawableFuncfb47464a implements Anvil.AttrFunc<Drawable> {
-    public static final PageMarginDrawableFuncfb47464a instance = new PageMarginDrawableFuncfb47464a();
+    private static PageMarginDrawableFuncfb47464a instance = null;
+
+    public static PageMarginDrawableFuncfb47464a getInstance() {
+      if(instance == null) {
+        instance = new PageMarginDrawableFuncfb47464a();
+      }
+      return instance;
+    }
 
     public void apply(View v, final Drawable arg, final Drawable old) {
       if (v instanceof ViewPager) {
@@ -465,7 +742,14 @@ public final class Supportv4DSL {
   }
 
   private static final class PageMarginDrawableFunc8567756a implements Anvil.AttrFunc<Integer> {
-    public static final PageMarginDrawableFunc8567756a instance = new PageMarginDrawableFunc8567756a();
+    private static PageMarginDrawableFunc8567756a instance = null;
+
+    public static PageMarginDrawableFunc8567756a getInstance() {
+      if(instance == null) {
+        instance = new PageMarginDrawableFunc8567756a();
+      }
+      return instance;
+    }
 
     public void apply(View v, final Integer arg, final Integer old) {
       if (v instanceof ViewPager) {
@@ -475,7 +759,14 @@ public final class Supportv4DSL {
   }
 
   private static final class PanelSlideListenerFuncf9ef21a7 implements Anvil.AttrFunc<SlidingPaneLayout.PanelSlideListener> {
-    public static final PanelSlideListenerFuncf9ef21a7 instance = new PanelSlideListenerFuncf9ef21a7();
+    private static PanelSlideListenerFuncf9ef21a7 instance = null;
+
+    public static PanelSlideListenerFuncf9ef21a7 getInstance() {
+      if(instance == null) {
+        instance = new PanelSlideListenerFuncf9ef21a7();
+      }
+      return instance;
+    }
 
     public void apply(View v, final SlidingPaneLayout.PanelSlideListener arg, final SlidingPaneLayout.PanelSlideListener old) {
       if (v instanceof SlidingPaneLayout) {
@@ -485,7 +776,14 @@ public final class Supportv4DSL {
   }
 
   private static final class ParallaxDistanceFunc8567756a implements Anvil.AttrFunc<Integer> {
-    public static final ParallaxDistanceFunc8567756a instance = new ParallaxDistanceFunc8567756a();
+    private static ParallaxDistanceFunc8567756a instance = null;
+
+    public static ParallaxDistanceFunc8567756a getInstance() {
+      if(instance == null) {
+        instance = new ParallaxDistanceFunc8567756a();
+      }
+      return instance;
+    }
 
     public void apply(View v, final Integer arg, final Integer old) {
       if (v instanceof SlidingPaneLayout) {
@@ -495,7 +793,14 @@ public final class Supportv4DSL {
   }
 
   private static final class ProgressBackgroundColorSchemeColorFunc8567756a implements Anvil.AttrFunc<Integer> {
-    public static final ProgressBackgroundColorSchemeColorFunc8567756a instance = new ProgressBackgroundColorSchemeColorFunc8567756a();
+    private static ProgressBackgroundColorSchemeColorFunc8567756a instance = null;
+
+    public static ProgressBackgroundColorSchemeColorFunc8567756a getInstance() {
+      if(instance == null) {
+        instance = new ProgressBackgroundColorSchemeColorFunc8567756a();
+      }
+      return instance;
+    }
 
     public void apply(View v, final Integer arg, final Integer old) {
       if (v instanceof SwipeRefreshLayout) {
@@ -505,7 +810,14 @@ public final class Supportv4DSL {
   }
 
   private static final class ProgressBackgroundColorSchemeResourceFunc8567756a implements Anvil.AttrFunc<Integer> {
-    public static final ProgressBackgroundColorSchemeResourceFunc8567756a instance = new ProgressBackgroundColorSchemeResourceFunc8567756a();
+    private static ProgressBackgroundColorSchemeResourceFunc8567756a instance = null;
+
+    public static ProgressBackgroundColorSchemeResourceFunc8567756a getInstance() {
+      if(instance == null) {
+        instance = new ProgressBackgroundColorSchemeResourceFunc8567756a();
+      }
+      return instance;
+    }
 
     public void apply(View v, final Integer arg, final Integer old) {
       if (v instanceof SwipeRefreshLayout) {
@@ -515,7 +827,14 @@ public final class Supportv4DSL {
   }
 
   private static final class RefreshingFunc148d6054 implements Anvil.AttrFunc<Boolean> {
-    public static final RefreshingFunc148d6054 instance = new RefreshingFunc148d6054();
+    private static RefreshingFunc148d6054 instance = null;
+
+    public static RefreshingFunc148d6054 getInstance() {
+      if(instance == null) {
+        instance = new RefreshingFunc148d6054();
+      }
+      return instance;
+    }
 
     public void apply(View v, final Boolean arg, final Boolean old) {
       if (v instanceof SwipeRefreshLayout) {
@@ -525,7 +844,14 @@ public final class Supportv4DSL {
   }
 
   private static final class ScrimColorFunc8567756a implements Anvil.AttrFunc<Integer> {
-    public static final ScrimColorFunc8567756a instance = new ScrimColorFunc8567756a();
+    private static ScrimColorFunc8567756a instance = null;
+
+    public static ScrimColorFunc8567756a getInstance() {
+      if(instance == null) {
+        instance = new ScrimColorFunc8567756a();
+      }
+      return instance;
+    }
 
     public void apply(View v, final Integer arg, final Integer old) {
       if (v instanceof DrawerLayout) {
@@ -535,7 +861,14 @@ public final class Supportv4DSL {
   }
 
   private static final class ShadowDrawableLeftFuncfb47464a implements Anvil.AttrFunc<Drawable> {
-    public static final ShadowDrawableLeftFuncfb47464a instance = new ShadowDrawableLeftFuncfb47464a();
+    private static ShadowDrawableLeftFuncfb47464a instance = null;
+
+    public static ShadowDrawableLeftFuncfb47464a getInstance() {
+      if(instance == null) {
+        instance = new ShadowDrawableLeftFuncfb47464a();
+      }
+      return instance;
+    }
 
     public void apply(View v, final Drawable arg, final Drawable old) {
       if (v instanceof SlidingPaneLayout) {
@@ -545,7 +878,14 @@ public final class Supportv4DSL {
   }
 
   private static final class ShadowDrawableRightFuncfb47464a implements Anvil.AttrFunc<Drawable> {
-    public static final ShadowDrawableRightFuncfb47464a instance = new ShadowDrawableRightFuncfb47464a();
+    private static ShadowDrawableRightFuncfb47464a instance = null;
+
+    public static ShadowDrawableRightFuncfb47464a getInstance() {
+      if(instance == null) {
+        instance = new ShadowDrawableRightFuncfb47464a();
+      }
+      return instance;
+    }
 
     public void apply(View v, final Drawable arg, final Drawable old) {
       if (v instanceof SlidingPaneLayout) {
@@ -555,7 +895,14 @@ public final class Supportv4DSL {
   }
 
   private static final class ShadowResourceLeftFunc8567756a implements Anvil.AttrFunc<Integer> {
-    public static final ShadowResourceLeftFunc8567756a instance = new ShadowResourceLeftFunc8567756a();
+    private static ShadowResourceLeftFunc8567756a instance = null;
+
+    public static ShadowResourceLeftFunc8567756a getInstance() {
+      if(instance == null) {
+        instance = new ShadowResourceLeftFunc8567756a();
+      }
+      return instance;
+    }
 
     public void apply(View v, final Integer arg, final Integer old) {
       if (v instanceof SlidingPaneLayout) {
@@ -565,7 +912,14 @@ public final class Supportv4DSL {
   }
 
   private static final class ShadowResourceRightFunc8567756a implements Anvil.AttrFunc<Integer> {
-    public static final ShadowResourceRightFunc8567756a instance = new ShadowResourceRightFunc8567756a();
+    private static ShadowResourceRightFunc8567756a instance = null;
+
+    public static ShadowResourceRightFunc8567756a getInstance() {
+      if(instance == null) {
+        instance = new ShadowResourceRightFunc8567756a();
+      }
+      return instance;
+    }
 
     public void apply(View v, final Integer arg, final Integer old) {
       if (v instanceof SlidingPaneLayout) {
@@ -575,7 +929,14 @@ public final class Supportv4DSL {
   }
 
   private static final class SizeFunc8567756a implements Anvil.AttrFunc<Integer> {
-    public static final SizeFunc8567756a instance = new SizeFunc8567756a();
+    private static SizeFunc8567756a instance = null;
+
+    public static SizeFunc8567756a getInstance() {
+      if(instance == null) {
+        instance = new SizeFunc8567756a();
+      }
+      return instance;
+    }
 
     public void apply(View v, final Integer arg, final Integer old) {
       if (v instanceof SwipeRefreshLayout) {
@@ -585,7 +946,14 @@ public final class Supportv4DSL {
   }
 
   private static final class SliderFadeColorFunc8567756a implements Anvil.AttrFunc<Integer> {
-    public static final SliderFadeColorFunc8567756a instance = new SliderFadeColorFunc8567756a();
+    private static SliderFadeColorFunc8567756a instance = null;
+
+    public static SliderFadeColorFunc8567756a getInstance() {
+      if(instance == null) {
+        instance = new SliderFadeColorFunc8567756a();
+      }
+      return instance;
+    }
 
     public void apply(View v, final Integer arg, final Integer old) {
       if (v instanceof SlidingPaneLayout) {
@@ -595,7 +963,14 @@ public final class Supportv4DSL {
   }
 
   private static final class SmoothScrollingEnabledFunc148d6054 implements Anvil.AttrFunc<Boolean> {
-    public static final SmoothScrollingEnabledFunc148d6054 instance = new SmoothScrollingEnabledFunc148d6054();
+    private static SmoothScrollingEnabledFunc148d6054 instance = null;
+
+    public static SmoothScrollingEnabledFunc148d6054 getInstance() {
+      if(instance == null) {
+        instance = new SmoothScrollingEnabledFunc148d6054();
+      }
+      return instance;
+    }
 
     public void apply(View v, final Boolean arg, final Boolean old) {
       if (v instanceof NestedScrollView) {
@@ -605,7 +980,14 @@ public final class Supportv4DSL {
   }
 
   private static final class StatusBarBackgroundFuncfb47464a implements Anvil.AttrFunc<Drawable> {
-    public static final StatusBarBackgroundFuncfb47464a instance = new StatusBarBackgroundFuncfb47464a();
+    private static StatusBarBackgroundFuncfb47464a instance = null;
+
+    public static StatusBarBackgroundFuncfb47464a getInstance() {
+      if(instance == null) {
+        instance = new StatusBarBackgroundFuncfb47464a();
+      }
+      return instance;
+    }
 
     public void apply(View v, final Drawable arg, final Drawable old) {
       if (v instanceof DrawerLayout) {
@@ -615,7 +997,14 @@ public final class Supportv4DSL {
   }
 
   private static final class StatusBarBackgroundFunc8567756a implements Anvil.AttrFunc<Integer> {
-    public static final StatusBarBackgroundFunc8567756a instance = new StatusBarBackgroundFunc8567756a();
+    private static StatusBarBackgroundFunc8567756a instance = null;
+
+    public static StatusBarBackgroundFunc8567756a getInstance() {
+      if(instance == null) {
+        instance = new StatusBarBackgroundFunc8567756a();
+      }
+      return instance;
+    }
 
     public void apply(View v, final Integer arg, final Integer old) {
       if (v instanceof DrawerLayout) {
@@ -625,7 +1014,14 @@ public final class Supportv4DSL {
   }
 
   private static final class StatusBarBackgroundColorFunc8567756a implements Anvil.AttrFunc<Integer> {
-    public static final StatusBarBackgroundColorFunc8567756a instance = new StatusBarBackgroundColorFunc8567756a();
+    private static StatusBarBackgroundColorFunc8567756a instance = null;
+
+    public static StatusBarBackgroundColorFunc8567756a getInstance() {
+      if(instance == null) {
+        instance = new StatusBarBackgroundColorFunc8567756a();
+      }
+      return instance;
+    }
 
     public void apply(View v, final Integer arg, final Integer old) {
       if (v instanceof DrawerLayout) {
@@ -635,7 +1031,14 @@ public final class Supportv4DSL {
   }
 
   private static final class TabIndicatorColorFunc8567756a implements Anvil.AttrFunc<Integer> {
-    public static final TabIndicatorColorFunc8567756a instance = new TabIndicatorColorFunc8567756a();
+    private static TabIndicatorColorFunc8567756a instance = null;
+
+    public static TabIndicatorColorFunc8567756a getInstance() {
+      if(instance == null) {
+        instance = new TabIndicatorColorFunc8567756a();
+      }
+      return instance;
+    }
 
     public void apply(View v, final Integer arg, final Integer old) {
       if (v instanceof PagerTabStrip) {
@@ -645,7 +1048,14 @@ public final class Supportv4DSL {
   }
 
   private static final class TabIndicatorColorResourceFunc8567756a implements Anvil.AttrFunc<Integer> {
-    public static final TabIndicatorColorResourceFunc8567756a instance = new TabIndicatorColorResourceFunc8567756a();
+    private static TabIndicatorColorResourceFunc8567756a instance = null;
+
+    public static TabIndicatorColorResourceFunc8567756a getInstance() {
+      if(instance == null) {
+        instance = new TabIndicatorColorResourceFunc8567756a();
+      }
+      return instance;
+    }
 
     public void apply(View v, final Integer arg, final Integer old) {
       if (v instanceof PagerTabStrip) {
@@ -655,7 +1065,14 @@ public final class Supportv4DSL {
   }
 
   private static final class TextColorFunc8567756a implements Anvil.AttrFunc<Integer> {
-    public static final TextColorFunc8567756a instance = new TextColorFunc8567756a();
+    private static TextColorFunc8567756a instance = null;
+
+    public static TextColorFunc8567756a getInstance() {
+      if(instance == null) {
+        instance = new TextColorFunc8567756a();
+      }
+      return instance;
+    }
 
     public void apply(View v, final Integer arg, final Integer old) {
       if (v instanceof PagerTitleStrip) {
@@ -665,7 +1082,14 @@ public final class Supportv4DSL {
   }
 
   private static final class TextSpacingFunc8567756a implements Anvil.AttrFunc<Integer> {
-    public static final TextSpacingFunc8567756a instance = new TextSpacingFunc8567756a();
+    private static TextSpacingFunc8567756a instance = null;
+
+    public static TextSpacingFunc8567756a getInstance() {
+      if(instance == null) {
+        instance = new TextSpacingFunc8567756a();
+      }
+      return instance;
+    }
 
     public void apply(View v, final Integer arg, final Integer old) {
       if (v instanceof PagerTitleStrip) {

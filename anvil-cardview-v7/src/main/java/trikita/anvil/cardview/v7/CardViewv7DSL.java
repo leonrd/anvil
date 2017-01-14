@@ -1,5 +1,6 @@
 package trikita.anvil.cardview.v7;
 
+import android.content.Context;
 import android.support.v7.widget.CardView;
 import android.view.View;
 import java.lang.Boolean;
@@ -16,40 +17,62 @@ import trikita.anvil.BaseDSL;
  * Please, don't edit it manually unless for debugging.
  */
 public final class CardViewv7DSL {
-  public static BaseDSL.ViewClassResult cardView() {
-    return BaseDSL.v(CardView.class);
+  public static CardView cardView() {
+    return BaseDSL.v(CardViewFactoryFunc.getInstance());
   }
 
-  public static Void cardView(Anvil.Renderable r) {
-    return BaseDSL.v(CardView.class, r);
+  public static CardView cardView(Anvil.Renderable r) {
+    return BaseDSL.v(CardViewFactoryFunc.getInstance(), r);
   }
 
   public static Void cardBackgroundColor(int arg) {
-    return BaseDSL.attr(CardBackgroundColorFunc8567756a.instance, arg);
+    return BaseDSL.attr(CardBackgroundColorFunc8567756a.getInstance(), arg);
   }
 
   public static Void cardElevation(float arg) {
-    return BaseDSL.attr(CardElevationFunce0893188.instance, arg);
+    return BaseDSL.attr(CardElevationFunce0893188.getInstance(), arg);
   }
 
   public static Void maxCardElevation(float arg) {
-    return BaseDSL.attr(MaxCardElevationFunce0893188.instance, arg);
+    return BaseDSL.attr(MaxCardElevationFunce0893188.getInstance(), arg);
   }
 
   public static Void preventCornerOverlap(boolean arg) {
-    return BaseDSL.attr(PreventCornerOverlapFunc148d6054.instance, arg);
+    return BaseDSL.attr(PreventCornerOverlapFunc148d6054.getInstance(), arg);
   }
 
   public static Void radius(float arg) {
-    return BaseDSL.attr(RadiusFunce0893188.instance, arg);
+    return BaseDSL.attr(RadiusFunce0893188.getInstance(), arg);
   }
 
   public static Void useCompatPadding(boolean arg) {
-    return BaseDSL.attr(UseCompatPaddingFunc148d6054.instance, arg);
+    return BaseDSL.attr(UseCompatPaddingFunc148d6054.getInstance(), arg);
+  }
+
+  private static final class CardViewFactoryFunc implements Anvil.FactoryFunc<CardView> {
+    private static CardViewFactoryFunc instance = null;
+
+    public static CardViewFactoryFunc getInstance() {
+      if(instance == null) {
+        instance = new CardViewFactoryFunc();
+      }
+      return instance;
+    }
+
+    public CardView apply(Context c) {
+      return new CardView(c);
+    }
   }
 
   private static final class CardBackgroundColorFunc8567756a implements Anvil.AttrFunc<Integer> {
-    public static final CardBackgroundColorFunc8567756a instance = new CardBackgroundColorFunc8567756a();
+    private static CardBackgroundColorFunc8567756a instance = null;
+
+    public static CardBackgroundColorFunc8567756a getInstance() {
+      if(instance == null) {
+        instance = new CardBackgroundColorFunc8567756a();
+      }
+      return instance;
+    }
 
     public void apply(View v, final Integer arg, final Integer old) {
       if (v instanceof CardView) {
@@ -59,7 +82,14 @@ public final class CardViewv7DSL {
   }
 
   private static final class CardElevationFunce0893188 implements Anvil.AttrFunc<Float> {
-    public static final CardElevationFunce0893188 instance = new CardElevationFunce0893188();
+    private static CardElevationFunce0893188 instance = null;
+
+    public static CardElevationFunce0893188 getInstance() {
+      if(instance == null) {
+        instance = new CardElevationFunce0893188();
+      }
+      return instance;
+    }
 
     public void apply(View v, final Float arg, final Float old) {
       if (v instanceof CardView) {
@@ -69,7 +99,14 @@ public final class CardViewv7DSL {
   }
 
   private static final class MaxCardElevationFunce0893188 implements Anvil.AttrFunc<Float> {
-    public static final MaxCardElevationFunce0893188 instance = new MaxCardElevationFunce0893188();
+    private static MaxCardElevationFunce0893188 instance = null;
+
+    public static MaxCardElevationFunce0893188 getInstance() {
+      if(instance == null) {
+        instance = new MaxCardElevationFunce0893188();
+      }
+      return instance;
+    }
 
     public void apply(View v, final Float arg, final Float old) {
       if (v instanceof CardView) {
@@ -79,7 +116,14 @@ public final class CardViewv7DSL {
   }
 
   private static final class PreventCornerOverlapFunc148d6054 implements Anvil.AttrFunc<Boolean> {
-    public static final PreventCornerOverlapFunc148d6054 instance = new PreventCornerOverlapFunc148d6054();
+    private static PreventCornerOverlapFunc148d6054 instance = null;
+
+    public static PreventCornerOverlapFunc148d6054 getInstance() {
+      if(instance == null) {
+        instance = new PreventCornerOverlapFunc148d6054();
+      }
+      return instance;
+    }
 
     public void apply(View v, final Boolean arg, final Boolean old) {
       if (v instanceof CardView) {
@@ -89,7 +133,14 @@ public final class CardViewv7DSL {
   }
 
   private static final class RadiusFunce0893188 implements Anvil.AttrFunc<Float> {
-    public static final RadiusFunce0893188 instance = new RadiusFunce0893188();
+    private static RadiusFunce0893188 instance = null;
+
+    public static RadiusFunce0893188 getInstance() {
+      if(instance == null) {
+        instance = new RadiusFunce0893188();
+      }
+      return instance;
+    }
 
     public void apply(View v, final Float arg, final Float old) {
       if (v instanceof CardView) {
@@ -99,7 +150,14 @@ public final class CardViewv7DSL {
   }
 
   private static final class UseCompatPaddingFunc148d6054 implements Anvil.AttrFunc<Boolean> {
-    public static final UseCompatPaddingFunc148d6054 instance = new UseCompatPaddingFunc148d6054();
+    private static UseCompatPaddingFunc148d6054 instance = null;
+
+    public static UseCompatPaddingFunc148d6054 getInstance() {
+      if(instance == null) {
+        instance = new UseCompatPaddingFunc148d6054();
+      }
+      return instance;
+    }
 
     public void apply(View v, final Boolean arg, final Boolean old) {
       if (v instanceof CardView) {

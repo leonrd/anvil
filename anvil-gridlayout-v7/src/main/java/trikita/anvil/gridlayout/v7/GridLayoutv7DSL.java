@@ -1,5 +1,6 @@
 package trikita.anvil.gridlayout.v7;
 
+import android.content.Context;
 import android.support.v7.widget.GridLayout;
 import android.support.v7.widget.Space;
 import android.util.Printer;
@@ -17,56 +18,93 @@ import trikita.anvil.BaseDSL;
  * Please, don't edit it manually unless for debugging.
  */
 public final class GridLayoutv7DSL {
-  public static BaseDSL.ViewClassResult gridLayout() {
-    return BaseDSL.v(GridLayout.class);
+  public static GridLayout gridLayout() {
+    return BaseDSL.v(GridLayoutFactoryFunc.getInstance());
   }
 
-  public static Void gridLayout(Anvil.Renderable r) {
-    return BaseDSL.v(GridLayout.class, r);
+  public static GridLayout gridLayout(Anvil.Renderable r) {
+    return BaseDSL.v(GridLayoutFactoryFunc.getInstance(), r);
   }
 
-  public static BaseDSL.ViewClassResult space() {
-    return BaseDSL.v(Space.class);
+  public static Space space() {
+    return BaseDSL.v(SpaceFactoryFunc.getInstance());
   }
 
-  public static Void space(Anvil.Renderable r) {
-    return BaseDSL.v(Space.class, r);
+  public static Space space(Anvil.Renderable r) {
+    return BaseDSL.v(SpaceFactoryFunc.getInstance(), r);
   }
 
   public static Void alignmentMode(int arg) {
-    return BaseDSL.attr(AlignmentModeFunc8567756a.instance, arg);
+    return BaseDSL.attr(AlignmentModeFunc8567756a.getInstance(), arg);
   }
 
   public static Void columnCount(int arg) {
-    return BaseDSL.attr(ColumnCountFunc8567756a.instance, arg);
+    return BaseDSL.attr(ColumnCountFunc8567756a.getInstance(), arg);
   }
 
   public static Void columnOrderPreserved(boolean arg) {
-    return BaseDSL.attr(ColumnOrderPreservedFunc148d6054.instance, arg);
+    return BaseDSL.attr(ColumnOrderPreservedFunc148d6054.getInstance(), arg);
   }
 
   public static Void orientation(int arg) {
-    return BaseDSL.attr(OrientationFunc8567756a.instance, arg);
+    return BaseDSL.attr(OrientationFunc8567756a.getInstance(), arg);
   }
 
   public static Void printer(Printer arg) {
-    return BaseDSL.attr(PrinterFunc4d515f2d.instance, arg);
+    return BaseDSL.attr(PrinterFunc4d515f2d.getInstance(), arg);
   }
 
   public static Void rowCount(int arg) {
-    return BaseDSL.attr(RowCountFunc8567756a.instance, arg);
+    return BaseDSL.attr(RowCountFunc8567756a.getInstance(), arg);
   }
 
   public static Void rowOrderPreserved(boolean arg) {
-    return BaseDSL.attr(RowOrderPreservedFunc148d6054.instance, arg);
+    return BaseDSL.attr(RowOrderPreservedFunc148d6054.getInstance(), arg);
   }
 
   public static Void useDefaultMargins(boolean arg) {
-    return BaseDSL.attr(UseDefaultMarginsFunc148d6054.instance, arg);
+    return BaseDSL.attr(UseDefaultMarginsFunc148d6054.getInstance(), arg);
+  }
+
+  private static final class GridLayoutFactoryFunc implements Anvil.FactoryFunc<GridLayout> {
+    private static GridLayoutFactoryFunc instance = null;
+
+    public static GridLayoutFactoryFunc getInstance() {
+      if(instance == null) {
+        instance = new GridLayoutFactoryFunc();
+      }
+      return instance;
+    }
+
+    public GridLayout apply(Context c) {
+      return new GridLayout(c);
+    }
+  }
+
+  private static final class SpaceFactoryFunc implements Anvil.FactoryFunc<Space> {
+    private static SpaceFactoryFunc instance = null;
+
+    public static SpaceFactoryFunc getInstance() {
+      if(instance == null) {
+        instance = new SpaceFactoryFunc();
+      }
+      return instance;
+    }
+
+    public Space apply(Context c) {
+      return new Space(c);
+    }
   }
 
   private static final class AlignmentModeFunc8567756a implements Anvil.AttrFunc<Integer> {
-    public static final AlignmentModeFunc8567756a instance = new AlignmentModeFunc8567756a();
+    private static AlignmentModeFunc8567756a instance = null;
+
+    public static AlignmentModeFunc8567756a getInstance() {
+      if(instance == null) {
+        instance = new AlignmentModeFunc8567756a();
+      }
+      return instance;
+    }
 
     public void apply(View v, final Integer arg, final Integer old) {
       if (v instanceof GridLayout) {
@@ -76,7 +114,14 @@ public final class GridLayoutv7DSL {
   }
 
   private static final class ColumnCountFunc8567756a implements Anvil.AttrFunc<Integer> {
-    public static final ColumnCountFunc8567756a instance = new ColumnCountFunc8567756a();
+    private static ColumnCountFunc8567756a instance = null;
+
+    public static ColumnCountFunc8567756a getInstance() {
+      if(instance == null) {
+        instance = new ColumnCountFunc8567756a();
+      }
+      return instance;
+    }
 
     public void apply(View v, final Integer arg, final Integer old) {
       if (v instanceof GridLayout) {
@@ -86,7 +131,14 @@ public final class GridLayoutv7DSL {
   }
 
   private static final class ColumnOrderPreservedFunc148d6054 implements Anvil.AttrFunc<Boolean> {
-    public static final ColumnOrderPreservedFunc148d6054 instance = new ColumnOrderPreservedFunc148d6054();
+    private static ColumnOrderPreservedFunc148d6054 instance = null;
+
+    public static ColumnOrderPreservedFunc148d6054 getInstance() {
+      if(instance == null) {
+        instance = new ColumnOrderPreservedFunc148d6054();
+      }
+      return instance;
+    }
 
     public void apply(View v, final Boolean arg, final Boolean old) {
       if (v instanceof GridLayout) {
@@ -96,7 +148,14 @@ public final class GridLayoutv7DSL {
   }
 
   private static final class OrientationFunc8567756a implements Anvil.AttrFunc<Integer> {
-    public static final OrientationFunc8567756a instance = new OrientationFunc8567756a();
+    private static OrientationFunc8567756a instance = null;
+
+    public static OrientationFunc8567756a getInstance() {
+      if(instance == null) {
+        instance = new OrientationFunc8567756a();
+      }
+      return instance;
+    }
 
     public void apply(View v, final Integer arg, final Integer old) {
       if (v instanceof GridLayout) {
@@ -106,7 +165,14 @@ public final class GridLayoutv7DSL {
   }
 
   private static final class PrinterFunc4d515f2d implements Anvil.AttrFunc<Printer> {
-    public static final PrinterFunc4d515f2d instance = new PrinterFunc4d515f2d();
+    private static PrinterFunc4d515f2d instance = null;
+
+    public static PrinterFunc4d515f2d getInstance() {
+      if(instance == null) {
+        instance = new PrinterFunc4d515f2d();
+      }
+      return instance;
+    }
 
     public void apply(View v, final Printer arg, final Printer old) {
       if (v instanceof GridLayout) {
@@ -116,7 +182,14 @@ public final class GridLayoutv7DSL {
   }
 
   private static final class RowCountFunc8567756a implements Anvil.AttrFunc<Integer> {
-    public static final RowCountFunc8567756a instance = new RowCountFunc8567756a();
+    private static RowCountFunc8567756a instance = null;
+
+    public static RowCountFunc8567756a getInstance() {
+      if(instance == null) {
+        instance = new RowCountFunc8567756a();
+      }
+      return instance;
+    }
 
     public void apply(View v, final Integer arg, final Integer old) {
       if (v instanceof GridLayout) {
@@ -126,7 +199,14 @@ public final class GridLayoutv7DSL {
   }
 
   private static final class RowOrderPreservedFunc148d6054 implements Anvil.AttrFunc<Boolean> {
-    public static final RowOrderPreservedFunc148d6054 instance = new RowOrderPreservedFunc148d6054();
+    private static RowOrderPreservedFunc148d6054 instance = null;
+
+    public static RowOrderPreservedFunc148d6054 getInstance() {
+      if(instance == null) {
+        instance = new RowOrderPreservedFunc148d6054();
+      }
+      return instance;
+    }
 
     public void apply(View v, final Boolean arg, final Boolean old) {
       if (v instanceof GridLayout) {
@@ -136,7 +216,14 @@ public final class GridLayoutv7DSL {
   }
 
   private static final class UseDefaultMarginsFunc148d6054 implements Anvil.AttrFunc<Boolean> {
-    public static final UseDefaultMarginsFunc148d6054 instance = new UseDefaultMarginsFunc148d6054();
+    private static UseDefaultMarginsFunc148d6054 instance = null;
+
+    public static UseDefaultMarginsFunc148d6054 getInstance() {
+      if(instance == null) {
+        instance = new UseDefaultMarginsFunc148d6054();
+      }
+      return instance;
+    }
 
     public void apply(View v, final Boolean arg, final Boolean old) {
       if (v instanceof GridLayout) {
