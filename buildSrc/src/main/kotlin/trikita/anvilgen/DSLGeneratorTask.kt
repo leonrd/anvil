@@ -184,18 +184,17 @@ open class DSLGeneratorTask : DefaultTask() {
         }
         name = toCase(name, { c -> Character.toLowerCase(c) })
         val baseDsl = ClassName.get("trikita.anvil", "BaseDSL")
-        val result = ClassName.get("trikita.anvil", "BaseDSL", "ViewClassResult")
         val factoryName = "${view.simpleName}FactoryFunc"
         builder.addMethod(MethodSpec.methodBuilder(name)
                 .addModifiers(Modifier.PUBLIC, Modifier.STATIC)
-                .returns(result)
+                .returns(view)
                 .addStatement("return \$T.v($factoryName.getInstance())", baseDsl)
                 .build())
         builder.addMethod(MethodSpec.methodBuilder(name)
                 .addParameter(ParameterSpec.builder(ClassName.get("trikita.anvil",
                         "Anvil", "Renderable"), "r").build())
                 .addModifiers(Modifier.PUBLIC, Modifier.STATIC)
-                .returns(TypeName.VOID.box())
+                .returns(view)
                 .addStatement("return \$T.v($factoryName.getInstance(), r)", baseDsl)
                 .build())
 

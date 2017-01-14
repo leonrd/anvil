@@ -50,17 +50,17 @@ public final class Anvil {
 	}
 
 	interface ViewFactory {
-        View fromFactoryFunc(Context c, FactoryFunc<? extends View> factoryFunc);
-		View fromClass(Context c, Class<? extends View> v);
+        <V extends View> V fromFactoryFunc(Context c, FactoryFunc<V> factoryFunc);
+        <V extends View> V  fromClass(Context c, Class<V> v);
 		View fromXml(Context c, int xmlId);
 		View fromId(View v, int viewId);
 	}
 
 	final static ViewFactory viewFactory = new ViewFactory() {
-        public View fromFactoryFunc(Context c, FactoryFunc<? extends View> factoryFunc) {
+        public <V extends View> V fromFactoryFunc(Context c, FactoryFunc<V> factoryFunc) {
             return factoryFunc.apply(c);
         }
-		public View fromClass(Context c, Class<? extends View> viewClass) {
+		public <V extends View> V fromClass(Context c, Class<V> viewClass) {
 			try {
 				return viewClass.getConstructor(Context.class).newInstance(c);
 			} catch (InvocationTargetException e) {
@@ -239,7 +239,8 @@ public final class Anvil {
 			return node;
 		}
 
-        void startFromFactory(FactoryFunc<? extends View> viewFactoryFunc) {
+        @SuppressWarnings("unchecked")
+        <V extends View> V startFromFactory(FactoryFunc<V> viewFactoryFunc) {
             Node node = startNode();
             View view = node.view;
             if (view == null || node.viewFactoryFunc != viewFactoryFunc) {
@@ -251,17 +252,20 @@ public final class Anvil {
                 if (view != null) {
                     node.parentView.removeView(view);
                 }
-                View v = viewFactory.fromFactoryFunc(node.parentView.getContext(), viewFactoryFunc);
+                V v = viewFactory.fromFactoryFunc(node.parentView.getContext(), viewFactoryFunc);
                 if (node.viewIndex == -1) {
                     node.viewIndex = node.parentView.getChildCount();
                 }
                 node.parentView.addView(v, node.viewIndex);
                 node.view = v;
             }
+
+            return (V)node.view;
         }
 
 		// Create/replace view object from the given view class
-		void startFromClass(Class<? extends View> viewClass) {
+        @SuppressWarnings("unchecked")
+        <V extends View> V startFromClass(Class<V> viewClass) {
 			Node node = startNode();
 			View view = node.view;
 			if (view == null || node.viewClass != viewClass) {
@@ -273,17 +277,18 @@ public final class Anvil {
 				if (view != null) {
 					node.parentView.removeView(view);
 				}
-				View v = viewFactory.fromClass(node.parentView.getContext(), viewClass);
+				V v = viewFactory.fromClass(node.parentView.getContext(), viewClass);
 				if (node.viewIndex == -1) {
 					node.viewIndex = node.parentView.getChildCount();
 				}
 				node.parentView.addView(v, node.viewIndex);
 				node.view = v;
 			}
+            return (V) node.view;
 		}
 
 		// Create/replace view from XML resource
-		void startFromLayout(int layoutId) {
+		View startFromLayout(int layoutId) {
 			Node node = startNode();
 			if (node.layoutId != layoutId) {
 				node.layoutId = layoutId;
@@ -301,6 +306,7 @@ public final class Anvil {
 				node.parentView.addView(v, node.viewIndex);
 				node.view = v;
 			}
+            return node.view;
 		}
 
 		void end() {

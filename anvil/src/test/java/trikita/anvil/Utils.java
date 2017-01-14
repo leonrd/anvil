@@ -44,14 +44,14 @@ public class Utils implements Anvil.ViewFactory {
     }
 
     @Override
-    public View fromFactoryFunc(Context c, Anvil.FactoryFunc<? extends View> factoryFunc) {
-        View v =  factoryFunc.apply(c);
+    public <V extends View> V fromFactoryFunc(Context c, Anvil.FactoryFunc<V> factoryFunc) {
+        V v =  factoryFunc.apply(c);
         Class vClass = v.getClass();
         createdViews.put(vClass, !createdViews.containsKey(vClass) ? 1 : (createdViews.get(vClass) + 1));
         return Mockito.spy(v);
     }
 
-    public View fromClass(Context c, Class<? extends View> v) {
+    public <V extends View> V fromClass(Context c, Class<V> v) {
         try {
             createdViews.put(v, !createdViews.containsKey(v) ? 1 : (createdViews.get(v) + 1));
             return Mockito.spy(v.getConstructor(Context.class).newInstance(getContext()));

@@ -711,19 +711,16 @@ public class BaseDSL {
 
 	public static final class ViewClassResult {}
 
-	public static ViewClassResult v(Class<? extends View> c) {
-		Anvil.currentMount().startFromClass(c);
-		return null;
+	public static <V extends View> V v(Class<V> c) {
+		return Anvil.currentMount().startFromClass(c);
 	}
 
-    public static ViewClassResult v(Anvil.FactoryFunc<? extends View> viewFactoryFunc) {
-        Anvil.currentMount().startFromFactory(viewFactoryFunc);
-        return null;
+    public static <V extends View> V v(Anvil.FactoryFunc<V> viewFactoryFunc) {
+        return Anvil.currentMount().startFromFactory(viewFactoryFunc);
     }
 
-	public static ViewClassResult xml(int layoutId) {
-		Anvil.currentMount().startFromLayout(layoutId);
-		return null;
+	public static View xml(int layoutId) {
+		return Anvil.currentMount().startFromLayout(layoutId);
 	}
 
 	private static Void end() {
@@ -731,25 +728,28 @@ public class BaseDSL {
 		return null;
 	}
 
-	public static Void x(ViewClassResult c, Object ...args) { return end(); }
-	public static Void o(ViewClassResult c, Object ...args) { return end(); }
+    public static <V extends View> Void x(V c, Object ...args) { return end(); }
+    public static <V extends View> Void o(V c, Object ...args) { return end(); }
 
-	public static Void v(Class<? extends View> c, Anvil.Renderable r) {
-		v(c);
+	public static <V extends View> V v(Class<V> c, Anvil.Renderable r) {
+		V v = v(c);
 		r.view();
-		return end();
+		end();
+        return v;
 	}
 
-    public static Void v(Anvil.FactoryFunc<? extends View> c, Anvil.Renderable r) {
-        v(c);
+    public static <V extends View> V v(Anvil.FactoryFunc<V> c, Anvil.Renderable r) {
+        V v = v(c);
         r.view();
-        return end();
+        end();
+        return v;
     }
 
-	public static Void xml(int layoutId, Anvil.Renderable r) {
-		xml(layoutId);
+	public static View xml(int layoutId, Anvil.Renderable r) {
+		View v = xml(layoutId);
 		r.view();
-		return end();
+		end();
+        return v;
 	}
 
 	public static <T> Void attr(Anvil.AttrFunc<T> f, T value) {
